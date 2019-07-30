@@ -284,9 +284,11 @@ class StereoFrame(Frame):
 
     def update_pose(self, pose):
         super().update_pose(pose)
+        # Note: this seems wrong
         self.right.update_pose(pose)
-        self.left.update_pose(
-            self.cam.compute_right_camera_pose(pose))
+        # self.left.update_pose(self.cam.compute_right_camera_pose(pose))
+        self.left.update_pose(pose)
+        self.right.update_pose(self.cam.compute_right_camera_pose(pose))
 
     # batch version
     def can_view(self, mappoints):

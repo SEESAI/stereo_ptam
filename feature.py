@@ -75,7 +75,7 @@ class ImageFeature(object):
         # TODO: reduce matched points by using predicted position
         matches = self.matcher.match(
             np.array(descriptors), unmatched_descriptors)
-        return [(m, m.queryIdx, m.trainIdx) for m in matches]
+        return [(m, m.queryIdx, lookup[m.trainIdx]) for m in matches]
 
     def row_match(self, *args, **kwargs):
         return row_match(self.matcher, *args, **kwargs)

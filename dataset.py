@@ -162,6 +162,7 @@ class Camera(object):
         else:
             return cv2.remap(img, *self.remap, cv2.INTER_LINEAR)
 
+
 class StereoCamera(object):
     def __init__(self, left_cam, right_cam):
         self.left_cam = left_cam

@@ -238,6 +238,7 @@ if __name__ == '__main__':
         default='KITTI')
     parser.add_argument('--path', type=str, help='dataset path', 
         default='path/to/your/KITTI_odometry/sequences/00')
+    parser.add_argument('--output', type=str, help='storing output values')
     args = parser.parse_args()
 
     if args.dataset.lower() == 'kitti':
@@ -264,7 +265,7 @@ if __name__ == '__main__':
 
 
     durations = []
-    for i in range(len(dataset))[:100]:
+    for i in range(len(dataset)):
         featurel = ImageFeature(dataset.left[i], params)
         featurer = ImageFeature(dataset.right[i], params)
         timestamp = dataset.timestamps[i]
